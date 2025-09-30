@@ -22,4 +22,4 @@ jobs:
          uses: docker/build-push-action@v6
          with:
             push: true
-            tags: ${{ env.user }}/jaggajasoos:${{ GITHUB_SHA }}
+            tags: ${{ env.user }}/jaggajasoos:${{ github.sha }}
