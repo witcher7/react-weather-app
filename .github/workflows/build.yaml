@@ -3,6 +3,8 @@ on: [push,workflow_dispatch]
 jobs:
   Build-Push:
      runs-on: ubuntu-latest
+     env:
+       user: ${{ secrets.DOCKER_USERNAME }}
      steps:
        - name: Check out the repo 
          uses: actions/checkout@v3
@@ -20,4 +22,4 @@ jobs:
          uses: docker/build-push-action@v6
          with:
             push: true
-            tags: ${{ secrets.DOCKER_USERNAME }}/jaggajasoos:${GITHUB_SHA}
+            tags: ${{ user }}/jaggajasoos:${{ GITHUB_SHA }}
